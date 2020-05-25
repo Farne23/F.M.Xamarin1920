@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <string.h>
+
+//FARNETI MICHELE RIPASSSO STRINGHE
+
+int main(void)
+{
+	char string1[30];
+	char string2[30];
+	int n1=0;
+	int n2=0;
+
+	
+	do
+	{
+	
+		printf("Inserire una frase (max 30 caratteri)\r\n");
+		gets(string1);
+		
+		while(string1[n1]!='\0')
+			{
+				n1++;
+			}
+	
+	}
+	while(n1>30);
+	
+	
+	
+  do{
+	
+		printf("Inserire la seconda frase (max 30 caratteri)\r\n");
+		gets(string2);
+		
+		while(string2[n2]!='\0')
+			{
+				n2++;
+			}
+	
+	}
+	while(n2>30);
+	
+	
+	
+	
+	int i;
+	int j;
+	for( i=0; i<n2; i++)
+	{
+		
+		for( j=0; j<n1; j++)
+		{
+			
+			if(string1[j]==string2[i])	
+			{
+				string1[j]='*';
+			}
+			
+		}
+	}
+	
+	
+	printf("La frase censurata:\r\n");
+	for(i=0;i<n1;i++)
+	{
+		printf("%c",string1[i]);
+	}
+	
+	printf("\r\n");
+	
+	
+	
+	
+	system("PAUSE");
+}
