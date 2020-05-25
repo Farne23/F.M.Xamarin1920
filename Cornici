@@ -1,0 +1,70 @@
+#include<math.h>
+#include<time.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#define N 14
+
+main() 
+{ 
+////////////
+//Cornice2//
+////////////
+
+//dichiarazione delle variabili
+int a[N][N]; //dichiarazione della matrice
+int n; //dimensione della matrice
+int i; //indice ciclo for per le righe
+int j; //indice ciclo for per le colonne
+
+
+srand(time(NULL)); //generatore di numeri casuali
+
+//inserimento della dimensione della matrice quadratica con controllo di validità
+
+	//Il limite serve ad evitare errori di visualizzazione
+ 	do {
+   		 printf("Dammi la dimensione della matrice quadrata (<=14) ");
+    	 scanf("%d", &n);
+    	 if(n>N)
+    	  	{
+    	  	  printf("il numero non deve superare %d\n", N);
+			}		
+       } while ((n>N)|| (n<1));
+ 
+ int x=1;  
+ int h =0; 
+//caricamento dei dati nella matrice 
+
+	for(h=0;h<=n/2;h++)
+	{
+	 for (i=0;i<n;i++) //ciclo per le righe
+	    {
+		for(j=0;j<n;j++)  //ciclo per le colonne
+			{
+				if(i>=(x-1) && i<=(n-x) && (j==(x-1)||j==(n-x)) || j>=(x-1) && j<=(n-x) && (i==(x-1) || i==(n-x)))
+				{
+					a[i][j] = x;
+				}
+			
+			
+	    	}
+		}
+		x++;
+	}
+	
+	
+//stampa dei dati della matrice
+printf("\nDati presenti nella matrice \n");
+for (i=0;i<n;i++) 
+	{
+   	 printf("\n");
+   		 for(j=0;j<n;j++) 
+			{
+        	printf("\t%d", a[i][j]);	            
+    		}   
+ 	}
+ 		
+	// if(i>=(x-1) && j==(x-1) && i<=(n-x) || i>=(x-1) && j==(n-x) && i<=(n-x) || i==(x-1) && j>=(x-1) && j<=(n-x)  || i==(n-x) && j>=(x-1) && j<=(n-x))	
+	
+}
